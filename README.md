@@ -30,3 +30,5 @@ The UI link is the protocol application; it does not claim that a particular leg
 ## Build
 
 Use Yarn and run yarn build. All logic is in src/main.mts, which exports only the async two-string-argument returnTags function. MIT licensed; authored from our own original Silo V2 module.
+
+Each query, including pacing and the response-body read, has a 30-second deadline. The complete run has a ten-minute deadline. A deadline throws without returning a partial set; native fetch cancellation is requested, and the local race also bounds fetch implementations that ignore cancellation. Use yarn build and yarn test.
